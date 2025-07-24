@@ -4,6 +4,7 @@ services:
     image: 'ghcr.io/novuhq/novu/api:2.3.0'
     container_name: api
     restart: unless-stopped
+    network_mode: 'host'
     logging:
       driver: 'json-file'
       options:
@@ -49,6 +50,7 @@ services:
     image: 'ghcr.io/novuhq/novu/worker:2.3.0'
     container_name: worker
     restart: unless-stopped
+    network_mode: 'host'
     logging:
       driver: 'json-file'
       options:
@@ -85,6 +87,7 @@ services:
     image: 'ghcr.io/novuhq/novu/ws:2.3.0'
     container_name: ws
     restart: unless-stopped
+    network_mode: 'host'
     logging:
       driver: 'json-file'
       options:
@@ -113,6 +116,7 @@ services:
       - worker
     container_name: dashboard
     restart: unless-stopped
+    network_mode: 'host'
     logging:
       driver: 'json-file'
       options:
