@@ -44,8 +44,6 @@ services:
       IS_V2_ENABLED: ${IS_V2_ENABLED}
     ports:
       - ${API_PORT}:${API_PORT}
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
 
   worker:
     image: 'ghcr.io/novuhq/novu/worker:2.3.0'
@@ -82,8 +80,6 @@ services:
       API_ROOT_URL: http://api:${API_PORT}
       IS_EMAIL_INLINE_CSS_DISABLED: ${IS_EMAIL_INLINE_CSS_DISABLED}
       IS_USE_MERGED_DIGEST_ID_ENABLED: ${IS_USE_MERGED_DIGEST_ID_ENABLED}
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
 
   ws:
     image: 'ghcr.io/novuhq/novu/ws:2.3.0'
@@ -109,8 +105,6 @@ services:
       NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY}
     ports:
       - ${WS_PORT}:${WS_PORT}
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
 
   dashboard:
     image: 'ghcr.io/novuhq/novu/dashboard:2.3.0'
@@ -131,5 +125,3 @@ services:
       VITE_LEGACY_DASHBOARD_URL: ${VITE_LEGACY_DASHBOARD_URL}
     ports:
       - 4000:4000
-    extra_hosts:
-      - 'host.docker.internal:host-gateway'
